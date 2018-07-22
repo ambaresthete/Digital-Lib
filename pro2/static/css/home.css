@@ -1,0 +1,23 @@
+body,html{
+  background-color: rgba(128, 128, 128, 0.5);
+}
+.carousel-inner img{
+width: 100%;
+}
+.wrapper{
+margin-left: 90px;
+}
+
+.carousel-caption
+{
+    position: absolute;
+    right: 15%;
+    bottom: 20px;
+    left: 15%;
+    z-index: 10;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    color: #4ac7b1;
+    font-size: 20px;
+    text-align: center;
+}

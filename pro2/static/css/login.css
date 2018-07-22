@@ -1,0 +1,13 @@
+.inner-wrapper {
+  display:table-cell;
+  vertical-align:middle;
+  padding:50px;
+  position: relative;
+  left:450px;
+  top:150px;
+}
+
+
+body{
+  background-color: rgba(255, 255, 128, .5);
+}

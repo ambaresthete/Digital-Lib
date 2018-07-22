@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block upload %}
+<div class="container">
+<div class="row">
+{% if object_list %}
+{% for object in object_list %}
+{{ object.subject }}:
+
+<a href="{{ object.link }}" target="_blank" >{{ object.link }}</a>
+{% endfor %}
+</div>
+
+{% endif %}
+</div>
+{% endblock %}

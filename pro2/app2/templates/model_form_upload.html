@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block upload %}
+<link href="{% static 'css/card.css' %}"/>
+  
+  <div class="card bg-light mx-auto mt-5" style="width: 30rem;">
+  <form method="POST" enctype="multipart/form-data" action="{% url 'upload' %}" >
+    {% csrf_token %}
+    <form class="form-group">
+      <label>Type:</label>
+      {{ form.type }}
+    </form>
+    <form class="form-group">
+      <label>Description:</label>
+    {{ form.description }}
+    </form>
+    <form class="form-group">
+      <label>Document:</label>
+      {{ form.document }}
+    </form>
+    <form class="form-group">
+      <label>Department:</label>
+      {{ form.department }}
+    </form>
+    <form class="form-group">
+      <label>Image:</label>
+      {{ form.image }}
+    </form>
+    <button type="submit">Upload</button>
+  </form>
+
+  <p><a href="{% url 'home' %}">Return to home</a></p>
+  </div>
+
+
+
+
+{% endblock %}

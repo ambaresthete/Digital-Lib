@@ -1,0 +1,50 @@
+{% url 'login' as login_url%}
+{% url 'logout' as logout_url%}
+{% url 'upload' as upload_url%}
+{% url 'contact' as contact_url%}
+{% url 'dept' as dept_url%}
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="#"><b>DIGI LIBRARY</b></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="/"><b>Home </b><span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/"><b>About</b></a>
+      </li>
+      <li class="nav-item">
+                    <a class="nav-link js-scroll-trigger" href="{{ contact_url }}"><b>Contact</b></a>
+                  </li>
+      {% if request.user.is_authenticated %}
+      <li class="nav-item">
+        <a class="nav-link" href="{{ dept_url }}"><b>Department</b></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{{ logout_url }}"><b>Logout</b></a>
+      </li>
+      {% if request.session.rolename == "staff" %}
+      <li class="nav-item">
+        <a class="nav-link" href="{{ upload_url }}"><b>Upload</b></a>
+      </li>
+      {% endif %}
+{% else %}
+        <li class="nav-item">
+          <a class="nav-link" href="{{ login_url }}"><b>Login</b></a>
+        </li>
+
+
+{% endif %}
+    </ul>
+    <form class="form-inline my-2 my-lg-0" action="{% url 'search:searchposts' %}" value="{{request.GET.q}}">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="q" value="{{request.GET.q}}">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+
+
+  </div>
+</nav>

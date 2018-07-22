@@ -1,0 +1,69 @@
+{% load staticfiles%}
+{% url 'home' as home_url %}
+{% url 'login' as login_url%}
+
+<html>
+<head>
+    <title>Digital Library</title>
+      {% include 'snippets/cs.html' %}
+
+          </head>
+<body>
+
+  {% include 'snippets/navbar.html' %}
+
+  {% block upload %}{% endblock %}
+    {% if request.path == home_url %}
+    <div class="container mt-3 ">
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+
+<ul class="carousel-indicators">
+  <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+  <li data-target="#myCarousel" data-slide-to="1"></li>
+  <li data-target="#myCarousel" data-slide-to="2"></li>
+</ul>
+
+<div class="carousel-inner">
+  <div class="carousel-item active">
+    <img src="{% static 'images/photo-1498243691581-b145c3f54a5a.jpg' %}" alt="anu1" height="560" width="1000">
+    <div class="carousel-caption d-none d-md-block">
+    <p>When in doubt go to the library.</p>
+    –J.K. Rowling
+
+  </div>
+  </div>
+  <div class="carousel-item">
+    <img src="{% static 'images/photo-1483546416237-76fd26bbcdd1.jpg' %}" alt="anu2" height="560" width="1000">
+    <div class="carousel-caption d-none d-md-block">
+    <p><b>Knowledge is love and light and wisdom.</b></p>
+    <h5>–Helen Keller</h5>
+  </div>
+  </div>
+  <div class="carousel-item">
+    <img src="{% static 'images/photo-1467320424268-f91a16cf7c77.jpg'%}" alt="anu3" height="560" width="1000">
+    <div class="carousel-caption d-none d-md-block">
+    <p><b>A good book is the best of friends.</b></p>
+
+  </div>
+  </div>
+</div>
+
+<a class="carousel-control-prev" href="#myCarousel" data-slide="prev">
+  <span class="carousel-control-prev-icon"></span>
+</a>
+<a class="carousel-control-next" href="#myCarousel" data-slide="next">
+  <span class="carousel-control-next-icon"></span>
+</a>
+</div>
+</div>
+<br>
+<br>
+    {% endif %}
+    {% if request.path == login_url %}
+       {% block content %}{% endblock %}
+    {% endif %}
+
+
+    {% include 'snippets/js.html' %}
+    </body>
+</html>
