@@ -15,3 +15,12 @@ class Document(models.Model):
 
     def __str__(self):
         return self.description
+
+class Contact(models.Model):
+    name = models.CharField(max_length=128)
+    email = models.EmailField()
+    feed = models.CharField(max_length=200)
+    radio = models.CharField(max_length=128)
+
+    def __str__(self):
+        return self.name

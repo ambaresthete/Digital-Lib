@@ -16,8 +16,8 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 from django.conf.urls import include
-from app2.views import model_form_upload
-from .views import login_page,home_page, logout_page,contact_page,dept
+from app2.views import model_form_upload, contact_page
+from .views import login_page,home_page, logout_page,dept
 from django.conf import settings
 from django.conf.urls.static import static
 from subjects.views import Books, Articles, Papers, cse_watch,ece_watch,it_watch, read
